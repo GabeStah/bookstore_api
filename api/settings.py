@@ -84,11 +84,11 @@ WSGI_APPLICATION = 'api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gremlin_pg',
-        'USER': 'pingpub',
+        'NAME': config('DATABASE_NAME'),
+        'USER': config('DATABASE_USER'),
         'PASSWORD': config('DATABASE_PASSWORD'),
-        'HOST': 'db-ping-pub.cvajeopcjvda.us-west-2.rds.amazonaws.com',
-        'PORT': '5432',
+        'HOST': config('DATABASE_HOST'),
+        'PORT': config('DATABASE_PORT'),
     }
 }
 
