@@ -1,11 +1,10 @@
-from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework.views import APIView
 from bookstore.models import Author, Book
 from bookstore.serializers import AuthorSerializer, BookSerializer
 from django.conf import settings
+from decouple import config
 
 
 class AuthorViewSet(viewsets.ModelViewSet):
@@ -26,7 +25,7 @@ class BookViewSet(viewsets.ModelViewSet):
 
 @api_view()
 def get_version(request):
-    return Response({'version': settings.VERSION})
+    return Response({'environment': config('ENVIRONMENT'), 'version': settings.VERSION})
 
 # class UserViewSet(viewsets.ModelViewSet):
 #     """
