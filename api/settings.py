@@ -14,7 +14,7 @@ import os
 from decouple import config
 
 # Change version
-VERSION = 5
+VERSION = 6
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -31,6 +31,8 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 ALLOWED_HOSTS = [
     '.amazonaws.com',
     '.pingpublications.com',
+    '54.213.54.171',
+    '52.11.79.9',
     '127.0.0.1',
     'localhost'
 ]
