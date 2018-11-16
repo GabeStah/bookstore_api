@@ -32,10 +32,10 @@ class BookViewSet(viewsets.ModelViewSet):
 
 @api_view()
 def get_version(request):
-    request.statsd.timings.start('get_version_timer:1|ms')
+    request.statsd.timings.start('get_version_timer')
 
     response = Response({'environment': config('ENVIRONMENT'), 'version': settings.VERSION})
-    request.statsd.timings.stop('get_version_timer:1|ms')
+    request.statsd.timings.stop('get_version_timer')
     return response
 
 # class UserViewSet(viewsets.ModelViewSet):
