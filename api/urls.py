@@ -30,4 +30,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('version', views.get_version),
     path('version/', views.get_version),
+    # path('test', views.test_view),
+    # path('test/', views.test_view),
 ]

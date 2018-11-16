@@ -23,9 +23,19 @@ class BookViewSet(viewsets.ModelViewSet):
     serializer_class = BookSerializer
 
 
+# def test_view(request):
+#     request.statsd.timings.start('test_view_timer')
+#     response = Response({'environment': config('ENVIRONMENT'), 'version': settings.VERSION})
+#     request.statsd.timings.stop('test_view_timer')
+#     return response
+
+
 @api_view()
 def get_version(request):
-    return Response({'environment': config('ENVIRONMENT'), 'version': settings.VERSION})
+    request.statsd.timings.start('get_version_timer')
+    response = Response({'environment': config('ENVIRONMENT'), 'version': settings.VERSION})
+    request.statsd.timings.stop('get_version_timer')
+    return response
 
 # class UserViewSet(viewsets.ModelViewSet):
 #     """
