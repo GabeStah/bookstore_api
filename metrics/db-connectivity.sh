@@ -1,6 +1,6 @@
 #!/bin/bash
 INSTANCE_ID="$(ec2metadata --instance-id)"
-TAG_NAME="$(aws ec2 describe-tags --filter "Name=resource-id,Values=$EC2_INSTANCE_ID" "Name=key,Values=Name" --query "Tags[*].Value" --output text)"
+TAG_NAME="$(aws ec2 describe-tags --filter "Name=resource-id,Values=$INSTANCE_ID" "Name=key,Values=Name" --query "Tags[*].Value" --output text)"
 
 while sleep 10
 do
