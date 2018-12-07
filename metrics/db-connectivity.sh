@@ -1,4 +1,5 @@
 #!/bin/bash
+# ~/apps/bookstore_api/metrics/db-connectivity.sh
 INSTANCE_ID="$(ec2metadata --instance-id)"
 TAG_NAME="$(/home/ubuntu/.local/bin/aws ec2 describe-tags --filter "Name=resource-id,Values=$INSTANCE_ID" "Name=key,Values=Name" --query "Tags[*].Value" --output text)"
 
